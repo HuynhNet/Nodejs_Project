@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title><%= title %> </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <style>
+        .container .row h2 {
+            text-align: center;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+        .form-control-underlined {
+            border-width: 0;
+            border-bottom-width: 1px;
+            border-radius: 0;
+            padding-left: 0;
+        }
+
+        .form-control::placeholder {
+            font-size: 0.95rem;
+            color: #aaa;
+            font-style: italic;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2>Quản lý sản phẩm</h2>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="navbar-left col-sm-12 col-md-6 mt-sm-1">
+                <a href="" class="btn btn-outline-danger">delete all select</a>
+                <a href="" class="btn btn-outline-primary">Add admin</a>
+                <a href="" class="btn btn-outline-success">Add admin form excel</a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 mt-sm-1">
+                <form action="" method="get">
+                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                        <div class="input-group">
+                            <input type="search" placeholder="What're you searching for?"
+                                aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link text-primary">
+                                    <i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <style>
+            /* .table-customize {
+                margin: 0;
+                border-radius: 4px;
+                overflow: hidden;
+                box-shadow: 0 0 0 1px #ccc inset;
+            }
+
+            .table-customize>thead>tr {
+                background-color: #535353;
+                border-radius: 3px 3px 0 0;
+            }
+
+            .table-customize>thead>tr>th {
+                color: #fff;
+                border-bottom: none;
+                padding: 10px 14px;
+                font-size: 14px;
+                font-weight: 400;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            .table-customize>thead>tr>th:first-child {
+                border-radius: 3px 0 0 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            .table-customize>thead>tr>th:last-child {
+                border-radius: 0 3px 0 0;
+            }
+
+            .table-customize>tbody>tr>td {
+                vertical-align: middle;
+                padding: 15px 14px;
+                color: #ccc;
+                font-size: 14px;
+                color: #000;
+                border: 1px solid #ccc;
+            }
+
+            .table-customize>tbody>tr>td a {
+                text-decoration: none;
+            }
+
+            .table-order>tbody>tr:nth-child(-n + 3)>td:first-child {
+                position: relative;
+                font-size: 10px;
+                font-weight: 700;
+            }
+
+            .table-order>tbody>tr:nth-child(-n + 3)>td:first-child span {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 14px;
+            }
+
+            .table-order>tbody>tr td:first-child,
+            .table-order>tbody>tr th:first-child {
+                text-align: center;
+            } */
+
+            @media (min-width: 320px) and (max-width: 767px) {
+
+                .table-customize,
+                .table-customize thead,
+                .table-customize tbody,
+                .table-customize th,
+                .table-customize td,
+                .table-customize tr {
+                    display: block;
+                }
+
+                .table-customize>thead>tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+                .table-customize>tbody>tr {
+                    border-top: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                }
+
+                .table-customize>tbody>tr:first-child {
+                    border-radius: 3px 3px 0 0;
+                    border-top: none;
+                }
+
+                .table-customize>tbody>tr:last-child {
+                    border-radius: 0 0 3px 3px;
+                    border-bottom: none;
+                }
+
+                .table-customize>tbody>tr td {
+                    border: none;
+                    border-bottom: 1px solid #ccc;
+                    position: relative;
+                    padding-left: 40% !important;
+                    width: 100%;
+                    overflow: hidden;
+                }
+
+                .table-customize>tbody>tr td:before {
+                    content: attr(data-title);
+                    position: absolute;
+                    top: 15px;
+                    left: 14px;
+                    width: 30%;
+                    padding-right: 10px;
+                    white-space: nowrap;
+                    font-size: 14px;
+                }
+
+                .table-customize>tbody>tr td:first-child {
+                    text-align: left;
+                }
+
+                .table-customize.table-order>tbody>tr:nth-child(-n + 3)>td:first-child {
+                    padding: 25px 0 25px 30% !important;
+                    background-position: left 32% center;
+                }
+
+                .table-customize.table-order>tbody>tr:nth-child(-n + 3)>td:first-child span {
+                    left: 32%;
+                }
+            }
+        </style>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover table-inverse table-customize">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th><input type="checkbox" id="master"></th>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Khuyến mãi</th>
+                            <th>Hình ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Hãng</th>
+                            <th>Mô tả</th>
+                            <th colspan="2">Tự chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" data-title="Select"><input type="checkbox" class="sub_chk"
+                                    data-id="{{ $val->id }}"></td>
+                            <td data-title="STT">1</td>
+                            <td data-title="Product Name">name</td>
+                            <td data-title="Price">giá</td>
+                            <td data-title="Promotion Price">giá khuyến mãi</td>
+                            <td data-title="Image"><img src="" class="img-fluid" alt=""></td>
+                            <td data-title="Quantity">5</td>
+                            <td data-title="Firm">hãng</td>
+                            <td data-title="Describe">mô tả</td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-info" data-toggle="tooltip" title="Chỉnh sửa">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-danger" data-toggle="tooltip" title="Xóa">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-title="Select"><input type="checkbox" class="sub_chk"
+                                    data-id="{{ $val->id }}"></td>
+                            <td data-title="STT">1</td>
+                            <td data-title="Product Name">name</td>
+                            <td data-title="Price">giá</td>
+                            <td data-title="Promotion Price">giá khuyến mãi</td>
+                            <td data-title="Image"><img src="" class="img-fluid" alt=""></td>
+                            <td data-title="Quantity">5</td>
+                            <td data-title="Firm">hãng</td>
+                            <td data-title="Describe">mô tả</td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-info" data-toggle="tooltip" title="Chỉnh sửa">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-danger" data-toggle="tooltip" title="Xóa">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-title="Select"><input type="checkbox" class="sub_chk"
+                                    data-id="{{ $val->id }}"></td>
+                            <td data-title="STT">1</td>
+                            <td data-title="Product Name">name</td>
+                            <td data-title="Price">giá</td>
+                            <td data-title="Promotion Price">giá khuyến mãi</td>
+                            <td data-title="Image"><img src="" class="img-fluid" alt=""></td>
+                            <td data-title="Quantity">5</td>
+                            <td data-title="Firm">hãng</td>
+                            <td data-title="Describe">mô tả</td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-info" data-toggle="tooltip" title="Chỉnh sửa">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-danger" data-toggle="tooltip" title="Xóa">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-title="Select"><input type="checkbox" class="sub_chk"
+                                    data-id="{{ $val->id }}"></td>
+                            <td data-title="STT">1</td>
+                            <td data-title="Product Name">name</td>
+                            <td data-title="Price">giá</td>
+                            <td data-title="Promotion Price">giá khuyến mãi</td>
+                            <td data-title="Image"><img src="" class="img-fluid" alt=""></td>
+                            <td data-title="Quantity">5</td>
+                            <td data-title="Firm">hãng</td>
+                            <td data-title="Describe">mô tả</td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-info" data-toggle="tooltip" title="Chỉnh sửa">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td data-title="Option">
+                                <a href="" class="btn btn-danger" data-toggle="tooltip" title="Xóa">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#master').on('click', function (e) {
+                if ($(this).is(':checked', true)) {
+                    $(".sub_chk").prop('checked', true);
+                } else {
+                    $(".sub_chk").prop('checked', false);
+                }
+            });
+
+
+            $('.delete_all').on('click', function (e) {
+                var allVals = [];
+                $(".sub_chk:checked").each(function () {
+                    allVals.push($(this).attr('data-id'));
+                });
+
+                if (allVals.length <= 0) {
+                    alert("Vui lòng chọn thành viên cần xóa");
+                } else {
+                    var check = confirm("Bạn có chắc xóa không?");
+                    if (check == true) {
+                        var join_selected_values = allVals.join(",");
+
+                        $.ajax({
+                            url: "",
+                            type: 'GET',
+                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                            data: 'ids=' + join_selected_values,
+                            success: function (data) {
+                                $(".sub_chk:checked").each(function () {
+                                    $(this).parents("tr").remove();
+                                });
+                                alert('Đã xóa tất cả các tài khoản được chọn');
+                            }
+                        });
+
+                        $.each(allVals, function (index, value) {
+                            $('table tr').filter("[data-row-id='" + value + "']").remove();
+                        });
+                    }
+                }
+            });
+
+
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+                onConfirm: function (event, element) {
+                    element.trigger('confirm');
+                }
+            });
+
+
+            // $(document).on('confirm', function (e) {
+            //     var ele = e.target;
+            //     e.preventDefault();
+
+            //     $.ajax({
+            //         url: "{{ route('getDeleteAllMember') }}",
+            //         type: 'GET',
+            //         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            //         success: function (data) {
+            //             if (data['success']) {
+            //                 $("#" + data['tr']).slideUp("slow");
+            //             } else if (data['error']) {
+            //                 alert(data['error']);
+            //             } else {
+            //                 alert('Rất tiếc có lỗi xảy ra!');
+            //             }
+            //         },
+            //         error: function (data) {
+            //             alert(data.responseText);
+            //         }
+            //     });
+
+
+            //     return false;
+            // });
+
+        });
+    </script>
+</body>
+
+</html>

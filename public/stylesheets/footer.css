@@ -1,0 +1,37 @@
+.footer{
+	background: #454242;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+
+.footer p{
+	color: white;
+	font-weight: 300;
+	font-family: arial;
+}
+
+.footer h3{
+	color: white;
+	font-weight: bold;
+	font-family: arial;
+}
+
+.footer i{
+	font-size: 20px;
+	color: #df7126;
+	padding-right: 10px;
+}
+
+.copyright{
+	background-color: black;
+	padding: 10px;
+	text-align: center;
+}
+
+.copyright p{
+	color: white;
+	font-weight: 300;
+	font-family: arial;
+	padding-top: 10px;
+}

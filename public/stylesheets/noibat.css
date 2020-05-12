@@ -1,0 +1,36 @@
+.col-md-12 .ul{
+    margin-top: 10px;
+    }
+    
+    .col-md-12 .ul a{
+        font-size: 16px;
+        text-decoration: none;
+        color: blue;
+        padding-top: 10px;
+        padding-right: 18px;
+    }
+    
+    .col-md-12 .ul a:hover{
+        color: red;
+    }
+    
+    .col-md-12 .ul h4{
+        font-weight: bold;
+    }
+    
+    .td a{
+        text-decoration: none;
+    }
+    
+    .td a:hover{
+        color: blue;
+    }
+    
+    .td strong{
+        color: red;
+    }
+    
+    .td:hover{
+        box-shadow: 2px 2px 2px black;
+        text-align: center;
+    }

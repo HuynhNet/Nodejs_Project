@@ -1,0 +1,36 @@
+.navbar-fixed-top{
+	background: #c5c1c1;
+}
+
+.navbar-header .navbar-brand{
+	color: red;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.navbar-header .navbar-brand:hover{
+	color: red;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.navbar-ex1-collapse .navbar-nav .active:hover span{
+	color: white;
+}
+
+.navbar-ex1-collapse .navbar-nav .active:hover a{
+	background: black;
+}
+
+.navbar-ex1-collapse .navbar-nav li a {
+	font-weight: bold;
+	color: black;
+}
+
+span.badge.badge-danger {
+    position: absolute;
+    top: 7px;
+    left: 28px;
+}

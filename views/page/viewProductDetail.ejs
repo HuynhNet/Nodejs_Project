@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %> </title>
+    <% include ../layout/head %> 
+</head>
+<body>
+    <% include ../slug %> 
+    <% include ../layout/header %> 
+    <br><br>
+
+    <div class="container">
+		<% products.forEach(product => { %>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h3><%= product.name %></h3>
+				<hr>
+			</div>
+		</div>
+		
+		<style>
+			.hover figure img{
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				-webkit-transition: .3s ease-in-out;
+				transition: .3s ease-in-out;
+			}
+			.hover figure img:hover{
+				-webkit-transform: scale(1.2);
+				transform: scale(1.2);
+			}
+			
+			@media only screen and (max-device-width: 480px){
+			    .camket{
+			        display: none;
+			    }
+
+			}
+		</style>
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+				<div class="hover">
+					<figure><img style="width: 200px; height:200px;" src="/upload/image_products/<%= product.image %>" 
+						class="img-responsive" alt="Image"></figure>
+				</div>
+			</div>
+				
+			<style>
+				.gia .giamgia{
+					text-decoration: line-through;
+					padding-left: 20px;
+					font-size: 16px;
+				}
+				.gia .price{
+					font-size: 25px;
+					font-weight: bold;
+				}
+				.gia .btn-danger{
+					background: #d81111;
+				}
+				.gia .btn-primary{
+					background: #1f3eae;
+				}
+
+			</style>
+			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 gia">
+				<% if (product.promotion_price == 0) { %>
+					<p class="price"><%= Intl.NumberFormat().format(product.price) %> đ</p><hr>
+				<% } else { %>
+					<span class="price"><%= Intl.NumberFormat().format(product.price) %>  đ</span>
+					<span class="giamgia"><%= Intl.NumberFormat().format(product.promotion_price) %>  đ</span>
+					<hr>
+				<% } %>
+					
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<%= product.describe %> 
+					</div>
+				</div>
+
+				<a href="" class="btn btn-danger btn-block"><span style="font-size: 18px;">MUA NGAY</span> <br>
+					SmartPhone sẽ gọi cho quý khách sớm nhất
+				</a>
+				<br>
+				<a href="" class="btn btn-primary btn-block"><span style="font-size: 18px;">THÊM VÀO GIỎ HÀNG</span></a>
+				<br>
+				<p style="text-align: center; font-size: 15px;">Gọi <strong style="color: red;">1800-6601</strong> để được tư vấn mua hàng (Miễn phí)</p>
+			</div>
+			
+			<style>
+				.camket span{
+					font-size: 25px;
+				}
+				.camket strong{
+					color:red;
+				}
+				.camket i{
+					font-size: 16px;
+					color: red;
+				}
+				.camket p{
+					font-size: 16px;
+					font-weight: 500;
+				}
+
+			</style>
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 camket">
+				<span><strong>SmartPhone</strong> cam kết</span>
+				<hr>
+				<p><i class="fas fa-angle-double-right"></i> Hàng chính hãng</p>
+				<p><i class="fas fa-angle-double-right"></i> Bảo hành 12 tháng chính hãng</p>
+				<p><i class="fas fa-angle-double-right"></i> Giao hàng miễn phí trên toàn quốc</p>
+			</div>
+			
+		</div> <!-- end row -->
+		<% }) %>
+
+		<style>
+			#exTab2 .nav-tabs a{
+			  	font-size: 16px;
+			  	font-weight: 700;
+			}
+
+			#exTab2 .tab-pane .cycle-slideshow .panel-default .box{
+				transition: box-shadow .3s;
+				background: #fff;
+			}
+
+			#exTab2 .tab-pane .cycle-slideshow .panel-default .box:hover{
+				box-shadow: 0 0 20px rgba(20,20,20,.2); 
+			}
+
+			#exTab2 .tab-pane .cycle-slideshow .panel-default .panel-body a{
+				text-decoration: none;
+			}
+			
+			#exTab2 .tab-pane .cycle-slideshow .panel-default .panel-body:hover a{
+				color: red;
+			}
+		</style>
+		<br><br><br>
+		<div class="row">
+			<div id="exTab2" class="container">	
+				<ul class="nav nav-tabs">
+					<li class="active">
+					    <a  href="#1" data-toggle="tab">Sản phẩm tương tự</a>
+					</li>
+					<li>
+						<a href="#2" data-toggle="tab">Sản phẩm cùng hãng</a>
+					</li>
+				</ul>
+				
+				<style>
+					.panel-default .box{
+						transition: box-shadow .3s;
+						background: #fff;
+					}
+
+					.panel-default .box:hover{
+						box-shadow: 0 0 20px rgba(20,20,20,.2); 
+					}
+
+					.panel-default .panel-body a{
+						text-decoration: none;
+					}
+					
+					.panel-default .panel-body:hover a{
+						color: red;
+					}
+				</style>
+				<div class="tab-content">
+					<div class="tab-pane active" id="1">
+						<div class="panel panel-default">
+								<% theSameProduct.forEach(theSameProducts => { %>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box">
+										<div class="panel-body">
+											<a href=""><img style="width: 200px; height:200px;" src="/upload/image_products/<%= theSameProducts.image %> " class="img-responsive" alt="Image"></a><br>
+											<a href=""><%= theSameProducts.name %> </a><br>
+												<% if (theSameProducts.promotion_price == 0) { %>
+													<strong><%= Intl.NumberFormat().format(theSameProducts.price) %>  đ</strong>
+												<% } else { %>
+													<strong class="navbar-left" style="text-decoration: line-through;">
+														<%= Intl.NumberFormat().format(theSameProducts.price) %> đ</strong>
+												   <strong class="navbar-right"><%= Intl.NumberFormat().format(theSameProducts.promotion_price) %> đ</strong>
+												<% } %>
+	
+										</div>
+										
+										<div class="panel-footer">
+											<a href="" class="btn btn-primary" data-toggle="tooltip" title="thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a>
+											<a style="margin-right: 4px;" class="btn btn-default navbar-right" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+										</div>
+									</div>
+								<% }) %>
+						</div>
+					</div> <!-- tap-pane -->
+			
+					<div class="tab-pane" id="2">
+					    <div class="panel panel-default">
+								<% theSamePtoductFirm.forEach(theSamePtoductFirms => { %>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box">
+										<div class="panel-body">
+											<a href=""><img style="width: 200px; height:200px;" src="/upload/image_products/<%= theSamePtoductFirm.image %> " class="img-responsive" alt="Image"></a><br>
+											<a href=""><%= theSamePtoductFirm.name %> </a><br>
+												<% if (theSamePtoductFirm.promotion_price) { %>
+													<strong><%= Intl.NumberFormat().format(theSamePtoductFirm.price) %> đ</strong>
+												<% } else { %>
+													<strong class="navbar-left" style="text-decoration: line-through;">
+														<%= Intl.NumberFormat().format(theSamePtoductFirm.price) %> đ</strong>
+												   <strong class="navbar-right"><%= Intl.NumberFormat().format(theSamePtoductFirm.promotion_price) %> đ</strong>
+												<% } %>
+										</div>
+										
+										<div class="panel-footer">
+											<a href="" class="btn btn-primary" data-toggle="tooltip" title="thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a>
+											<a style="margin-right: 4px;" class="btn btn-default navbar-right" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+										</div>
+									</div>
+								<% }) %>
+						</div>
+					</div>
+				</div> <!-- tap-content -->
+			</div>
+		</div>
+		<br><br>
+
+		<!-- <div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div id="fb-root"></div>
+				<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
+
+				<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#http://localhost/NLCN/view-product/{{ $products->id }}" data-width="500" data-numposts="5"></div>
+			</div>
+		</div> -->
+
+	</div> 
+	<br><br><br>
+
+	<script>
+	    function xacnhanxoa(msg){
+			if(window.confirm(msg)){
+				return true;
+			}
+			return false;
+		}
+    </script>
+    
+    <% include ../layout/footer %> 
+
+    <% include ../layout/script %> 
+    
+</body>
+</html>

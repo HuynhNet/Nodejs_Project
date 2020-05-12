@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <% include ../layout/head %> 
+</head>
+<body>
+    <% include ../slug %> 
+    <% include ../layout/header %> 
+
+    <br>
+	<div class="container">
+        <% if (session.cart) { %>
+            <style>
+				.has-cart .panel-body img{
+					width: 100px;
+					height: 100px;
+				}
+				.has-cart .navbar-right{
+					padding-right: 15px;
+				}
+				.has-cart .navbar-right a{
+					text-decoration: none;
+				}
+				.has-cart .panel-body .col-lg-1{
+					padding-left: 0px;
+					padding-right: 20px;
+				}
+			</style>
+			<div class="row has-cart">
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-push-2">
+					<div class="navbar-left"> 
+						<p>GIỎ HÀNG CỦA BẠN CÓ (<%= session.cart.totalQty %> sản phẩm)</p>
+					</div>
+
+					<div class="navbar-right">
+						<a href="">Mua thêm sản phẩm khác</a>
+					</div>
+					<br>
+					<div class="panel panel-default">
+						<div class="panel-body">
+                            <% products.forEach(product => { %>
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                        <img src="/upload/image_products/<%= product.item.image %>" class="img-responsive" alt="Image">
+                                    </div>
+    
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <strong><%= product.item.name %> </strong>
+                                    </div>
+    
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                        <% if (product.item.promotion_price == 0) { %>
+                                            <p><%= Intl.NumberFormat().format(product.item.price) %> đ</p>
+                                        <% } else { %>
+                                            <p style="text-decoration: line-through;">
+                                                <%= Intl.NumberFormat().format(product.item.price) %> đ</p>
+                                               <p><%= Intl.NumberFormat().format(product.item.promotion_price) %> đ</p>
+                                        <% } %>
+                                    </div>
+    
+                                        
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                            
+                                                <a href="/reduceByOne-cart/<%= product.item.id %>" class="btn btn-default" style="margin-bottom: 5px; margin-left: 30px;"><i class="glyphicon glyphicon-minus"></i></a>
+                                            
+                                                <input style="width: 50%; text-align: center;" type="text" id="txt_solg" 
+                                                value="<%= product.qty %>" class="form-control quantity" onchange="" disabled>
+                                            
+                                                <a href="/increase-cart/<%= product.item.id %> " class="btn btn-default" style="margin-top: 5px; margin-left: 30px;"><i class="glyphicon glyphicon-plus"></i></a>
+
+                                        </div>
+                                        
+                                        <!-- <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                            
+                                        </div>
+                                        
+                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            
+                                        </div>                                       
+                                        
+                                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                            
+                                        </div> -->
+    
+                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <a onclick="return xacnhanxoa('Ban co chac chan xoa?')" href="/delete-cart/<%= product.item.id %> " class="btn btn-danger" data-toggle="tooltip" title="xóa"><i class="glyphicon glyphicon-trash"></i>
+                                        </a>
+                                    </div>
+    
+                                </div><hr> <!-- row -->
+                            <% }) %>
+							
+							<style>
+								.tinhtien p{
+									color: red; 
+									font-weight: bold;
+									font-size: 16px;
+								}
+
+								.tinhtien strong{
+									font-size: 16px;
+								}
+							</style>
+							<div class="row tinhtien">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+									<strong>Tổng tiền: </strong>
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<p>
+										<%= Intl.NumberFormat().format(session.cart.totalPrice) %> đ
+									</p>
+								</div>
+							</div> <hr>
+							
+							<style>
+								.info-customer label{
+									padding-top: 5px;
+
+								}
+								.info-customer .row .col-sm-7, .col-md-7  input:focus{
+									outline: none;
+								}
+								.info-customer .row .col-sm-7, .col-md-7  input{
+									
+									border-color: inherit;
+  									-webkit-box-shadow: none;
+  									box-shadow: none;
+  									border-width:0px;
+									border:none;
+									/*margin-top: 10px;*/
+
+								}
+
+								.info-customer button{
+									width: 50%;
+									margin-right: 40px; 
+									height: auto;
+									text-align: center;
+									background-color: #d81111;
+								}
+								.info-customer button strong{
+									font-size: 20px;
+								}
+							</style>
+							<div class="row info-customer">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<h2><strong>Thông tin khách hàng</strong></h2>
+									<br>
+									<form action="" method="POST" role="form" data-toggle="validator" novalidate="true">
+                                    <% if (session.loggin) { %>
+                                        <div class="row thongtin">
+											<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+												<label for="">Họ và tên: </label>
+											</div>
+											<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+												<input type="text" name="txt_name" class="form-control" id="" value=<%= session.username %> >
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+												<label for="">Email: </label>
+											</div>
+											<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+												<input type="text" name="txt_email" class="form-control" id=""  value=<%= session.email %> >
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+												<label for="">Số điện thoại: </label>
+											</div>
+											<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+												<input type="text" name="txt_phone" class="form-control" id=""  value=<%= session.phone %> >
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+												<label for="">Đại chỉ: </label>
+											</div>
+											<div class="col-xs-7 col-sm7 col-md-7 col-lg-7">
+												<input type="text" name="txt_address" class="form-control" id=""  value=<%= session.address %> >
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+												<label for="">Hình thức thanh toán: </label>
+											</div>
+											<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+												<input type="text" name="txt_payment" class="form-control" id=""  value="Thanh toán khi nhận hàng">
+											</div>
+										</div>
+										<br>
+                                    <% } else { %>
+                                        <div class="form-group">
+                                            <label for="">Họ và tên:</label>
+                                            <input style="width: 50%;" type="text" name="txt_name" class="form-control" id="" placeholder="" required="required" data-error="Vui lòng nhập họ tên">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Email:</label>
+                                            <input style="width: 50%;" type="text" name="txt_email" class="form-control" id="" placeholder="" required="required" data-error="Vui lòng nhập email">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Số điện thoại:</label>
+                                            <input style="width: 50%;" type="text" name="txt_phone" class="form-control" id="" placeholder="" required="required" data-error="Vui lòng nhập số điện thoại">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Địa chỉ:</label>
+                                            <textarea style="width: 70%;" name="txt_address" class="form-control" rows="3" required="required" data-error="Vui lòng nhập địa chỉ"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                                            <label for="">Hình thức thanh toán: </label>
+                                        </div>
+                                        <div style="font-weight: bold;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                            <input type="text" name="txt_payment" class="form-control" id=""  value="Thanh toán khi nhận hàng">
+                                        </div>
+                                        <br>
+                                    <% } %>
+
+										<button type="submit" class="btn btn-danger navbar-right">
+										<strong>Xác nhận</strong><br>
+										( SmartPhone sẽ gọi cho quý khách sớm nhất )
+										</button>
+									</form>
+								</div>
+							</div> 
+
+
+						</div>  <!-- panel-body -->
+					</div> <!-- panel -->
+				</div>
+			</div> <!-- .ROW -->
+        <% } else { %>
+            <style>
+                .cart-null .panel-body{
+                    text-align: center;
+                }
+                .cart-null .panel-body i{
+                    color: #f44242;
+                    font-size: 40px;
+                }
+                .cart-null .panel-body a{
+                    padding: 15px 20px;
+                }
+
+                .cart-null .panel-body a:hover{
+                    background: white;
+                    color: red;
+                }
+            </style>
+            <br>
+			<div class="row cart-null">
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-push-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h1><i class="fas fa-shopping-cart"></i></h1><br>
+							<h4>Bạn không có sản phẩm trong giỏ hàng</h4><br>
+							<a href="/home" class="btn btn-default">Quay về trang chủ</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+        <% } %>
+    </div> 
+    <% include ../layout/footer %> 
+
+    <% include ../layout/script %> 
+
+	<script>
+		// var msg = '{{Session::get('delete_cart')}}';
+	    // var exist = '{{Session::has('delete_cart')}}';
+	    // if(exist){
+	    //     swal({
+	    //         title: "Đã xóa sản phẩm ra khỏi giỏ hàng.",
+	    //         text: "",
+	    //         type: "success",
+	    //         timer: 1200,
+	    //         showConfirmButton: false,
+	    //         position: 'top-end',
+	    //     });
+	    // }
+	    
+	    // var msg1 = '{{Session::get('order_success')}}';
+	    // var exist1 = '{{Session::has('order_success')}}';
+	    // if(exist1){
+	    //     swal({
+	    //         title: "Đặt hàng thành công.",
+	    //         text: "",
+	    //         type: "success",
+	    //         timer: 1200,
+	    //         showConfirmButton: false,
+	    //         position: 'top-end',
+	    //     });
+	    // }
+
+	    function xacnhanxoa(msg){
+			if(window.confirm(msg)){
+				return true;
+			}
+			return false;
+        }
+        
+    </script>
+    
+</body>
+</html>
+

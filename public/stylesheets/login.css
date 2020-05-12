@@ -1,0 +1,48 @@
+
+body{
+	background-color: #f1f4f4;
+}
+
+.dangnhap h3{
+	text-align: center;
+	font-weight: bold;
+}
+
+.dangnhap h2{
+	color: red;
+	font-weight: bold;
+}
+
+.dangnhap input{
+	width: 60%;
+	height: 45px;
+	background-color: #e6e6fa;
+}
+
+.dangnhap .btn-danger{
+	width: 60%;
+}
+
+.dangnhap .quenmk{
+	padding-top: 10px;
+	text-align: center;
+}
+
+.hinhphai{
+	padding-top: 150px;
+
+}
+
+
+.hinhphai img{
+	border-radius: 8%;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px){
+    .hinhphai{
+        display: none;
+    }
+
+}
+
