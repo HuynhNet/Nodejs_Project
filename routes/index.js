@@ -93,6 +93,8 @@ router.get('/home', function (req, res, next) {
     });
 });
 
+//
+
 // page register
 router.get('/register', function (req, res, next) {
     res.render('./page/register', { title: "Đăng ký", errors: '' });
